@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>True North 2026 — Brand Reference</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;700;900&family=Dela+Gothic+One&family=Epilogue:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold:  #C58A2B;
+      --teal:  #254E51;
+      --mint:  #99BBB0;
+      --black: #191818;
+      --ivory: #F5EFD5;
+      --ff-h: 'Roboto Slab', serif;
+      --ff-a: 'Roboto Slab', serif;
+      --ff-b: 'Roboto Slab', serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--ff-b); background: var(--ivory); color: var(--black); overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── NAV ─── */
+    .site-nav {
+      position: sticky; top: 0; z-index: 200;
+      height: 50px; background: var(--black);
+      display: flex; align-items: center;
+      padding: 0 40px; gap: 0;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2px; }
+    .nav-links a {
+      font-family: var(--ff-a); font-size: 10px;
+      font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--mint);
+      text-decoration: none; padding: 6px 14px;
+      opacity: 0.65; transition: opacity .2s, color .2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--gold); }
+    .nav-right {
+      margin-left: auto;
+      font-family: var(--ff-a); font-size: 10px;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(245,239,213,.2);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: calc(100vh - 50px);
+      background: var(--teal);
+      background-image: url('bg_blue.jpg');
+      background-size: cover; background-position: center;
+      position: relative;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; padding: 80px 40px;
+    }
+    .hero-overlay { display: none; }
+    .hero-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+    .hero-eyebrow {
+      font-family: var(--ff-a); font-size: 10px;
+      font-weight: 700; letter-spacing: .3em;
+      text-transform: uppercase; color: var(--ivory);
+      margin-bottom: 48px;
+    }
+    .hero-lockup { width: 100%; max-width: min(920px, 90vw); height: auto; margin-bottom: 40px; }
+    .hero-lockup-fallback {
+      width: 500px; max-width: 85vw; min-height: 160px;
+      border: 1px solid rgba(197,138,43,.3);
+      display: none; align-items: center; justify-content: center;
+      margin-bottom: 40px;
+    }
+    .hero-lockup-fallback span {
+      font-family: var(--ff-a); font-size: 10px;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(245,239,213,.75);
+    }
+    .hero-title {
+      font-family: var(--ff-h);
+      font-size: clamp(14px, 1.6vw, 20px);
+      font-weight: 500; text-transform: uppercase;
+      color: var(--ivory); line-height: 1;
+      letter-spacing: .18em; margin-bottom: 12px;
+    }
+    .hero-sub {
+      font-family: var(--ff-a); font-size: 12px;
+      font-weight: 500; letter-spacing: .28em;
+      text-transform: uppercase; color: rgba(245,239,213,.82);
+    }
+
+    /* ─── SECTION SCAFFOLDING ─── */
+    .sec-wrap { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+    .sec-label {
+      font-family: var(--ff-a); font-size: 10px;
+      font-weight: 700; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--teal);
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 18px;
+    }
+    .sec-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--teal); opacity: .22;
+    }
+    .sec-head {
+      font-family: var(--ff-h);
+      font-size: clamp(30px, 4vw, 52px);
+      font-weight: 900; text-transform: uppercase;
+      color: var(--teal); line-height: 1;
+      letter-spacing: -.01em; margin-bottom: 14px;
+    }
+    .sec-body {
+      font-size: 14px; line-height: 1.8;
+      color: rgba(25,24,24,.78);
+      max-width: 580px; margin-bottom: 48px;
+    }
+
+    /* dark band */
+    .band-dark {
+      background: var(--teal);
+      background-image: url('bg_blue.jpg');
+      background-size: cover; background-position: center;
+      position: relative;
+    }
+    .band-dark::before {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(37,78,81,.84);
+    }
+    .band-dark .sec-wrap { position: relative; z-index: 1; }
+    .band-dark .sec-head { color: var(--ivory); }
+    .band-dark .sec-body { color: rgba(245,239,213,.75); }
+    .band-dark .sec-label { color: var(--mint); }
+    .band-dark .sec-label::after { background: var(--mint); }
+
+    /* black band */
+    .band-black { background: var(--black); }
+    .band-black .sec-head { color: var(--ivory); }
+    .band-black .sec-body { color: rgba(245,239,213,.72); }
+    .band-black .sec-label { color: var(--mint); }
+    .band-black .sec-label::after { background: var(--mint); }
+
+    /* ─── LOGOS ─── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media(max-width:640px){ .logo-grid { grid-template-columns: 1fr; } }
+    .logo-card {
+      padding: 44px 28px 26px;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 18px;
+      border: 1px solid rgba(197,138,43,.13);
+      min-height: 200px;
+    }
+    .logo-card.on-ivory { background: var(--ivory); }
+    .logo-card.on-black { background: var(--black); }
+    .logo-card.on-teal  { background: var(--teal); }
+    .logo-card.on-white { background: #fff; }
+    .logo-card img { width: 100%; max-width: 260px; height: auto; object-fit: contain; }
+    .logo-card-label {
+      font-family: var(--ff-a); font-size: 9px;
+      font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--teal);
+    }
+    .logo-card.on-black .logo-card-label,
+    .logo-card.on-teal .logo-card-label { color: var(--ivory); }
+    .logo-placeholder-note {
+      margin-top: 28px; padding: 22px 24px;
+      border: 1px dashed rgba(197,138,43,.18);
+      text-align: center;
+    }
+    .logo-placeholder-note p {
+      font-family: var(--ff-a); font-size: 10px;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: rgba(25,24,24,.28); line-height: 1.6;
+    }
+
+    /* ─── COLORS ─── */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    @media(max-width:700px){ .color-grid { grid-template-columns: repeat(3,1fr); } }
+    .swatch { display: flex; flex-direction: column; }
+    .swatch-block { height: 96px; width: 100%; }
+    .swatch-info { padding: 12px 2px; display: flex; flex-direction: column; gap: 4px; }
+    .swatch-name {
+      font-family: var(--ff-a); font-size: 10px;
+      font-weight: 700; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--black);
+    }
+    .swatch-hex { font-family: var(--ff-a); font-size: 11px; color: rgba(25,24,24,.42); letter-spacing: .07em; }
+    .swatch-role { font-size: 11px; color: rgba(25,24,24,.38); line-height: 1.55; margin-top: 2px; }
+
+    /* ─── FONTS ─── */
+    .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media(max-width:640px){ .type-grid { grid-template-columns: 1fr; } }
+    .type-card {
+      background: #fff;
+      border: 1px solid rgba(197,138,43,.14);
+      padding: 36px 30px;
+    }
+    .type-role {
+      font-family: var(--ff-a); font-size: 9px;
+      font-weight: 700; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 4px;
+    }
+    .type-replaces {
+      font-family: var(--ff-a); font-size: 10px;
+      color: rgba(25,24,24,.68); letter-spacing: .06em;
+      margin-bottom: 24px;
+    }
+    .type-display-roboto {
+      font-family: var(--ff-h); font-size: 50px;
+      font-weight: 900; text-transform: uppercase;
+      color: var(--teal); line-height: 1;
+      letter-spacing: -.02em; margin-bottom: 20px;
+    }
+    .type-display-chakra {
+      font-family: var(--ff-a); font-size: 38px;
+      font-weight: 700; text-transform: uppercase;
+      color: var(--gold); line-height: 1;
+      letter-spacing: .08em; margin-bottom: 20px;
+    }
+    .type-sample {
+      font-size: 12px; color: rgba(25,24,24,.78);
+      line-height: 1.65; padding-top: 16px;
+      border-top: 1px solid rgba(197,138,43,.11);
+    }
+    .type-note {
+      margin-top: 28px; padding: 22px 24px;
+      background: rgba(37,78,81,.06);
+      border: 1px solid rgba(37,78,81,.18);
+    }
+    .type-note-label {
+      font-family: var(--ff-a); font-size: 9px;
+      font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--teal);
+      margin-bottom: 8px;
+    }
+    .type-note p {
+      font-size: 13px; line-height: 1.65; color: rgba(25,24,24,.82);
+    }
+
+    /* ─── BACKGROUNDS ─── */
+    .bg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media(max-width:640px){ .bg-grid { grid-template-columns: 1fr; } }
+    .bg-card { display: flex; flex-direction: column; gap: 14px; }
+    .bg-preview { height: 220px; background-size: cover; background-position: center; }
+    .bg-preview.is-blue {
+      background-color: var(--teal);
+      background-image: url('bg_blue.jpg');
+    }
+    .bg-preview.is-ivory {
+      background-color: var(--ivory);
+      background-image: url('bg_ivory.jpg');
+      border: 1px solid rgba(25,24,24,.1);
+    }
+    .bg-filename {
+      font-family: var(--ff-a); font-size: 11px;
+      font-weight: 600; letter-spacing: .14em;
+      color: var(--ivory);
+    }
+    .bg-use { font-size: 13px; color: rgba(245,239,213,.75); line-height: 1.6; }
+
+    /* ─── FILES ─── */
+    .file-link {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+      padding: 32px;
+      border: 1px solid rgba(197,138,43,.2);
+      text-decoration: none; color: inherit;
+      background: rgba(197,138,43,.03);
+      transition: border-color .25s, background .25s;
+    }
+    .file-link:hover { border-color: var(--gold); background: rgba(197,138,43,.07); }
+    .file-title {
+      font-family: var(--ff-h); font-size: 20px;
+      font-weight: 700; text-transform: uppercase;
+      color: var(--ivory); letter-spacing: .02em;
+      margin-bottom: 6px;
+    }
+    .file-meta { font-size: 13px; color: rgba(245,239,213,.72); }
+    .file-badge {
+      font-family: var(--ff-a); font-size: 10px;
+      font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase;
+      background: var(--teal); color: var(--ivory);
+      padding: 10px 22px; white-space: nowrap; flex-shrink: 0;
+    }
+
+    /* ─── FOOTER ─── */
+    .site-footer {
+      background: var(--black);
+      border-top: 1px solid rgba(197,138,43,.1);
+      padding: 28px 40px;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+    .footer-left {
+      font-family: var(--ff-a); font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(245,239,213,.62);
+    }
+    .footer-right {
+      font-family: var(--ff-a); font-size: 10px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--ivory);
+    }
+
+    /* ─── DRAWER ─── */
+    .drawer-btn {
+      width: 100%; background: var(--black);
+      border: none; border-top: 1px solid rgba(197,138,43,.1);
+      padding: 18px 40px; cursor: pointer;
+      display: flex; align-items: center; gap: 16px;
+      color: rgba(245,239,213,.28);
+      font-family: var(--ff-a); font-size: 10px;
+      font-weight: 600; letter-spacing: .2em;
+      text-transform: uppercase; transition: color .2s;
+    }
+    .drawer-btn:hover { color: var(--gold); }
+    .drawer-chevron { margin-left: auto; font-size: 13px; transition: transform .35s ease; }
+    .drawer-chevron.open { transform: rotate(180deg); }
+    .drawer-panel { max-height: 0; overflow: hidden; transition: max-height .6s ease; }
+    .drawer-panel.open { max-height: 99999px; }
+
+    /* ─── PRESENTATION CONTENT ─── */
+    .pres-nav {
+      background: rgba(25,24,24,.97);
+      display: flex; align-items: center;
+      padding: 0 40px; height: 44px;
+      border-bottom: 1px solid rgba(197,138,43,.1);
+      overflow-x: auto; gap: 0; flex-shrink: 0;
+    }
+    .pres-nav a {
+      font-family: var(--ff-a); font-size: 10px;
+      font-weight: 600; letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(153,187,176,.55);
+      text-decoration: none; padding: 5px 12px;
+      white-space: nowrap; transition: color .2s;
+    }
+    .pres-nav a:hover { color: var(--gold); }
+    .pres-badge {
+      margin-left: auto; flex-shrink: 0;
+      font-family: var(--ff-a); font-size: 9px;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(197,138,43,.35); padding-left: 20px;
+    }
+
+    .pres-section { padding: 68px 40px; max-width: 1100px; margin: 0 auto; }
+    .pres-section-band { background: #0e1f21; }
+
+    .pres-label {
+      font-family: var(--ff-a); font-size: 9px;
+      font-weight: 700; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .pres-head {
+      font-family: var(--ff-h);
+      font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 900; text-transform: uppercase;
+      color: var(--ivory); line-height: 1.05;
+      letter-spacing: -.01em; margin-bottom: 14px;
+    }
+    .pres-body { font-size: 14px; line-height: 1.78; color: rgba(245,239,213,.52); max-width: 600px; }
+    .pres-divider { height: 1px; background: rgba(197,138,43,.1); }
+
+    .feedback-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-top: 40px;
+    }
+    @media(max-width:640px){ .feedback-grid { grid-template-columns: 1fr; } }
+    .feedback-item {
+      padding: 22px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(197,138,43,.09);
+    }
+    .feedback-topic {
+      font-family: var(--ff-a); font-size: 9px;
+      font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .feedback-text { font-size: 14px; line-height: 1.65; color: rgba(245,239,213,.62); }
+
+    .iter-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 10px; margin-top: 36px;
+    }
+    @media(max-width:700px){ .iter-grid { grid-template-columns: repeat(2,1fr); } }
+    .iter-thumb { cursor: pointer; overflow: hidden; }
+    .iter-thumb img {
+      width: 100%; aspect-ratio: 2/3;
+      object-fit: cover; transition: transform .3s;
+    }
+    .iter-thumb:hover img { transform: scale(1.04); }
+    .iter-num {
+      font-family: var(--ff-a); font-size: 9px;
+      font-weight: 600; letter-spacing: .15em;
+      color: rgba(197,138,43,.42);
+      text-align: center; padding: 8px 0 4px;
+    }
+
+    .featured-img {
+      max-width: 480px; margin: 40px auto 0;
+      cursor: pointer;
+    }
+    .featured-img img { width: 100%; height: auto; transition: opacity .25s; }
+    .featured-img:hover img { opacity: .88; }
+
+    .colorway-strip {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 10px; margin-top: 24px;
+    }
+    @media(max-width:640px){ .colorway-strip { grid-template-columns: repeat(2,1fr); } }
+    .cw-thumb { cursor: pointer; overflow: hidden; }
+    .cw-thumb img { width: 100%; aspect-ratio: 2/3; object-fit: cover; transition: transform .3s; }
+    .cw-thumb:hover img { transform: scale(1.04); }
+
+    .steps-list { display: flex; flex-direction: column; gap: 0; margin-top: 40px; }
+    .step-item {
+      display: flex; gap: 28px; padding: 28px 0;
+      border-bottom: 1px solid rgba(197,138,43,.09);
+      align-items: flex-start;
+    }
+    .step-num {
+      font-family: var(--ff-h); font-size: 52px;
+      font-weight: 900; color: rgba(197,138,43,.1);
+      line-height: 1; flex-shrink: 0; width: 60px; text-align: right;
+    }
+    .step-title {
+      font-family: var(--ff-h); font-size: 18px;
+      font-weight: 700; text-transform: uppercase;
+      color: var(--ivory); margin-bottom: 6px;
+    }
+    .step-desc { font-size: 14px; color: rgba(245,239,213,.48); line-height: 1.6; }
+
+    .brief-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 18px; margin-top: 40px;
+    }
+    @media(max-width:640px){ .brief-grid { grid-template-columns: 1fr; } }
+    .brief-card {
+      padding: 26px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(197,138,43,.09);
+    }
+    .brief-card-label {
+      font-family: var(--ff-a); font-size: 9px;
+      font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .brief-card-head {
+      font-family: var(--ff-h); font-size: 17px;
+      font-weight: 700; text-transform: uppercase;
+      color: var(--ivory); margin-bottom: 8px;
+    }
+    .brief-card-body { font-size: 13px; line-height: 1.65; color: rgba(245,239,213,.48); }
+
+    .last-year-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: start; margin-top: 40px;
+    }
+    @media(max-width:640px){ .last-year-wrap { grid-template-columns: 1fr; } }
+    .keeping-list { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .keeping-item { display: flex; align-items: center; gap: 12px; }
+    .keeping-badge {
+      font-family: var(--ff-a); font-size: 9px;
+      font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; padding: 4px 10px;
+    }
+    .badge-keep   { background: rgba(153,187,176,.14); color: var(--mint); }
+    .badge-evolve { background: rgba(197,138,43,.14);  color: var(--gold); }
+    .badge-amp    { background: rgba(37,78,81,.35);    color: var(--mint); }
+    .keeping-item span { font-size: 13px; color: rgba(245,239,213,.48); }
+
+    .pres-footer {
+      background: var(--black);
+      border-top: 1px solid rgba(197,138,43,.1);
+      padding: 24px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .pres-footer span {
+      font-family: var(--ff-a); font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+    }
+    .pres-footer .pf-left { color: rgba(245,239,213,.22); }
+    .pres-footer .pf-right { color: rgba(197,138,43,.5); }
+
+    /* ─── LIGHTBOX ─── */
+    .lb-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.92);
+      z-index: 9999;
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px;
+      opacity: 0; pointer-events: none;
+      transition: opacity .25s;
+    }
+    .lb-overlay.active { opacity: 1; pointer-events: all; }
+    .lb-overlay img { max-height: 90vh; max-width: 90vw; object-fit: contain; }
+    .lb-close {
+      position: absolute; top: 24px; right: 32px;
+      font-size: 30px; color: rgba(255,255,255,.55);
+      cursor: pointer; background: none; border: none;
+      line-height: 1; transition: color .2s;
+    }
+    .lb-close:hover { color: #fff; }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    /* ─── BIG SIS PRESENTATION DRAWER ─── */
+    .bs-drawer-btn {
+      width: 100%; background: #F4F2EA;
+      border: none; border-top: 4px solid #E91A41;
+      padding: 24px 40px; cursor: pointer;
+      display: flex; align-items: center; gap: 16px;
+      color: #4E0002;
+      font-family: 'Dela Gothic One', sans-serif;
+      font-size: 15px; font-weight: 400;
+      letter-spacing: .02em;
+      transition: background .2s;
+    }
+    .bs-drawer-btn:hover { background: #EAE5D8; }
+    .bs-drawer-chevron {
+      margin-left: auto; font-size: 16px;
+      color: #E91A41; transition: transform .35s ease;
+    }
+    .bs-drawer-chevron.open { transform: rotate(180deg); }
+    .bs-drawer-panel { max-height: 0; overflow: hidden; transition: max-height .6s ease; }
+    .bs-drawer-panel.open { max-height: 99999px; }
+
+    /* Scoped Big Sis tokens */
+    .bs-drawer-panel {
+      --bs-red:   #E91A41;
+      --bs-teal:  #3A887D;
+      --bs-brown: #4E0002;
+      --bs-dark:  #2E1A0E;
+      --bs-bg0:   #F4F2EA;
+      --bs-bg1:   #EAE5D8;
+      --bs-bg2:   #DED8C8;
+      --bs-ffh:   'Dela Gothic One', sans-serif;
+      --bs-ffb:   'Epilogue', sans-serif;
+    }
+
+    .bs-hero {
+      background: var(--bs-dark);
+      padding: 64px 40px; text-align: center;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .bs-hero-eyebrow {
+      font-family: var(--bs-ffb); font-size: 11px;
+      font-weight: 600; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--bs-teal);
+      margin-bottom: 20px;
+    }
+    .bs-hero-title {
+      font-family: var(--bs-ffh);
+      font-size: clamp(34px, 5vw, 62px);
+      font-weight: 400; color: var(--bs-bg0);
+      line-height: 1; margin-bottom: 16px;
+    }
+    .bs-hero-sub {
+      font-family: var(--bs-ffb); font-size: 12px;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(244,242,234,.38);
+    }
+
+    .bs-nav {
+      background: rgba(46,26,14,.97);
+      display: flex; align-items: center;
+      padding: 0 40px; height: 44px;
+      border-bottom: 1px solid rgba(233,26,65,.12);
+      overflow-x: auto; gap: 0;
+    }
+    .bs-nav a {
+      font-family: var(--bs-ffb); font-size: 11px;
+      font-weight: 600; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(244,242,234,.42);
+      text-decoration: none; padding: 5px 14px;
+      white-space: nowrap; transition: color .2s;
+    }
+    .bs-nav a:hover { color: var(--bs-red); }
+    .bs-nav-badge {
+      margin-left: auto; flex-shrink: 0;
+      font-family: var(--bs-ffb); font-size: 9px;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(233,26,65,.35); padding-left: 20px;
+    }
+
+    .bs-section { padding: 64px 40px; max-width: 1100px; margin: 0 auto; }
+    .bs-band-0  { background: var(--bs-bg0); }
+    .bs-band-1  { background: var(--bs-bg1); }
+    .bs-band-2  { background: var(--bs-bg2); }
+    .bs-band-dark { background: var(--bs-dark); }
+
+    .bs-sec-bar {
+      font-family: var(--bs-ffb); font-size: 10px;
+      font-weight: 700; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--bs-red);
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 18px;
+    }
+    .bs-sec-bar::after {
+      content: ''; flex: 1; height: 1px;
+      background: var(--bs-red); opacity: .18;
+    }
+    .bs-h2 {
+      font-family: var(--bs-ffh);
+      font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 400; color: var(--bs-brown);
+      line-height: 1.05; margin-bottom: 14px;
+    }
+    .bs-band-dark .bs-h2 { color: var(--bs-bg0); }
+    .bs-band-dark .bs-sec-bar { color: var(--bs-red); }
+    .bs-body {
+      font-family: var(--bs-ffb); font-size: 14px;
+      line-height: 1.78; color: rgba(78,0,2,.58);
+      max-width: 600px;
+    }
+    .bs-band-dark .bs-body { color: rgba(244,242,234,.55); }
+
+    .bs-feedback-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin-top: 40px;
+    }
+    @media(max-width:640px){ .bs-feedback-grid { grid-template-columns: 1fr; } }
+    .bs-feedback-item {
+      padding: 22px; background: rgba(255,255,255,.65);
+      border: 1px solid rgba(78,0,2,.07);
+      border-left: 3px solid var(--bs-red);
+    }
+    .bs-feedback-topic {
+      font-family: var(--bs-ffb); font-size: 9px;
+      font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--bs-red);
+      margin-bottom: 8px;
+    }
+    .bs-feedback-text {
+      font-family: var(--bs-ffb); font-size: 14px;
+      line-height: 1.65; color: rgba(78,0,2,.68);
+    }
+
+    .bs-notes-box {
+      margin-top: 44px; padding: 28px;
+      background: rgba(255,255,255,.7);
+      border-left: 3px solid var(--bs-teal);
+    }
+    .bs-notes-box-label {
+      font-family: var(--bs-ffb); font-size: 9px;
+      font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--bs-teal);
+      margin-bottom: 10px;
+    }
+    .bs-notes-box p {
+      font-family: var(--bs-ffb); font-size: 14px;
+      line-height: 1.78; color: rgba(78,0,2,.58);
+    }
+
+    .bs-iter-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 10px; margin-top: 36px;
+    }
+    @media(max-width:700px){ .bs-iter-grid { grid-template-columns: repeat(2,1fr); } }
+    .bs-iter-thumb { cursor: pointer; overflow: hidden; }
+    .bs-iter-thumb img {
+      width: 100%; aspect-ratio: 2/3;
+      object-fit: cover; transition: transform .3s;
+    }
+    .bs-iter-thumb:hover img { transform: scale(1.04); }
+    .bs-iter-num {
+      font-family: var(--bs-ffb); font-size: 9px;
+      font-weight: 600; letter-spacing: .15em;
+      color: rgba(78,0,2,.3); text-align: center;
+      padding: 8px 0 4px;
+    }
+
+    .bs-featured { max-width: 480px; margin: 40px auto 0; cursor: pointer; }
+    .bs-featured img { width: 100%; height: auto; transition: opacity .25s; }
+    .bs-featured:hover img { opacity: .88; }
+
+    .bs-colorway-strip {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 10px; margin-top: 24px;
+    }
+    @media(max-width:640px){ .bs-colorway-strip { grid-template-columns: repeat(2,1fr); } }
+    .bs-cw-thumb { cursor: pointer; overflow: hidden; }
+    .bs-cw-thumb img { width: 100%; aspect-ratio: 2/3; object-fit: cover; transition: transform .3s; }
+    .bs-cw-thumb:hover img { transform: scale(1.04); }
+
+    .bs-steps { display: flex; flex-direction: column; margin-top: 40px; }
+    .bs-step {
+      display: flex; gap: 28px; padding: 28px 0;
+      border-bottom: 1px solid rgba(78,0,2,.07);
+      align-items: flex-start;
+    }
+    .bs-step-num {
+      font-family: var(--bs-ffh); font-size: 52px;
+      font-weight: 400; color: rgba(78,0,2,.07);
+      line-height: 1; flex-shrink: 0; width: 56px; text-align: right;
+    }
+    .bs-step-title {
+      font-family: var(--bs-ffb); font-size: 16px;
+      font-weight: 700; color: var(--bs-brown); margin-bottom: 6px;
+    }
+    .bs-step-desc {
+      font-family: var(--bs-ffb); font-size: 13px;
+      color: rgba(78,0,2,.48); line-height: 1.6;
+    }
+
+    .bs-brief-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 18px; margin-top: 40px;
+    }
+    @media(max-width:640px){ .bs-brief-grid { grid-template-columns: 1fr; } }
+    .bs-brief-card {
+      padding: 26px; background: rgba(255,255,255,.7);
+      border: 1px solid rgba(78,0,2,.06);
+    }
+    .bs-brief-card-label {
+      font-family: var(--bs-ffb); font-size: 9px;
+      font-weight: 700; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--bs-red);
+      margin-bottom: 8px;
+    }
+    .bs-brief-card-head {
+      font-family: var(--bs-ffb); font-size: 16px;
+      font-weight: 700; color: var(--bs-brown); margin-bottom: 8px;
+    }
+    .bs-brief-card-body {
+      font-family: var(--bs-ffb); font-size: 13px;
+      line-height: 1.65; color: rgba(78,0,2,.48);
+    }
+
+    .bs-last-year-wrap {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: start; margin-top: 40px;
+    }
+    @media(max-width:640px){ .bs-last-year-wrap { grid-template-columns: 1fr; } }
+    .bs-keeping-list { margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+    .bs-keeping-item { display: flex; align-items: center; gap: 12px; }
+    .bs-keeping-badge {
+      font-family: var(--bs-ffb); font-size: 9px;
+      font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; padding: 4px 10px;
+    }
+    .bs-badge-keep   { background: rgba(58,136,125,.12); color: var(--bs-teal); }
+    .bs-badge-evolve { background: rgba(233,26,65,.1);   color: var(--bs-red); }
+    .bs-badge-amp    { background: rgba(78,0,2,.08);     color: var(--bs-brown); }
+    .bs-keeping-item span { font-family: var(--bs-ffb); font-size: 13px; color: rgba(78,0,2,.52); }
+
+    .bs-concept-num {
+      font-family: var(--bs-ffh); font-size: 56px;
+      font-weight: 400; color: rgba(78,0,2,.07);
+      line-height: 1; margin-bottom: 4px;
+    }
+    .bs-divider { height: 1px; background: rgba(78,0,2,.07); }
+    .bs-pres-footer {
+      background: var(--bs-dark); padding: 24px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .bs-pres-footer .pfl {
+      font-family: var(--bs-ffb); font-size: 10px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(244,242,234,.22);
+    }
+    .bs-pres-footer .pfr {
+      font-family: var(--bs-ffb); font-size: 10px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(233,26,65,.45);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="site-nav">
+  <div class="nav-links">
+    <a href="#logos">Logos</a>
+    <a href="#colors">Colors</a>
+    <a href="#fonts">Fonts</a>
+    <a href="#backgrounds">Backgrounds</a>
+    <a href="#poster">Poster</a>
+    <a href="#files">Files</a>
+  </div>
+  <div class="nav-right">True North 2026</div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">True North Food + Music Festival</div>
+    <img class="hero-lockup"
+         src="tn_logo_primary.png"
+         alt="True North Food &amp; Music Festival"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <div class="hero-lockup-fallback">
+      <span>tn_logo_ivory.png</span>
+    </div>
+    <div class="hero-title">2026 Campaign</div>
+    <div class="hero-sub">Brand Reference &nbsp;·&nbsp; Provided by Big Sis Creative Studio</div>
+  </div>
+</section>
+
+<!-- ===== FILES ===== -->
+<div id="files" class="band-black">
+  <div class="sec-wrap">
+    <div class="sec-label reveal">Files</div>
+    <div class="sec-head reveal">Campaign Files</div>
+    <p class="sec-body reveal">Everything needed to produce True North 2026 campaign materials. Share with any vendor, designer, or partner working on the campaign.</p>
+
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <a class="file-link reveal" href="https://drive.google.com/file/d/1RukA5L6Sdtu8x2hzrxibsVOmvzLIj33y/view?usp=share_link" target="_blank" rel="noopener">
+        <div>
+          <div class="file-title">2026 Campaign Guidelines</div>
+          <div class="file-meta">PDF &nbsp;·&nbsp; Logos &nbsp;·&nbsp; Colors &nbsp;·&nbsp; Fonts &nbsp;·&nbsp; Backgrounds &nbsp;·&nbsp; Flourishes</div>
+        </div>
+        <div class="file-badge">Download PDF</div>
+      </a>
+      <a class="file-link reveal" href="https://drive.google.com/file/d/1JJ5KHTL1OtcfC1ihrrfdohc__8uxhPtT/view?usp=share_link" target="_blank" rel="noopener">
+        <div>
+          <div class="file-title">Background Texture Files</div>
+          <div class="file-meta">Blue distressed background &nbsp;·&nbsp; Ivory texture &nbsp;·&nbsp; Print + digital use</div>
+        </div>
+        <div class="file-badge">Download Files</div>
+      </a>
+      <a class="file-link reveal" href="https://drive.google.com/file/d/1Z_RlCA3bnK4Mccpy6QYvUoKS94KMo5rM/view?usp=sharing" target="_blank" rel="noopener">
+        <div>
+          <div class="file-title">Working Adobe Illustrator Files</div>
+          <div class="file-meta">Campaign guidelines source &nbsp;·&nbsp; All logo colorways &nbsp;·&nbsp; Editable artwork</div>
+        </div>
+        <div class="file-badge">Download AI</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LOGOS ===== -->
+<div id="logos">
+  <div class="sec-wrap">
+    <div class="sec-label reveal">Logos</div>
+    <div class="sec-head reveal">Mark System</div>
+    <p class="sec-body reveal">Primary lockup uses Breakers Slab Bold + Gin. All colorways are print-ready artwork — never recreate the logo, always use provided files. All colorways available for download via the <a href="https://drive.google.com/drive/folders/1hCz5rql95Cp0gFzH-I0jGCBNEJapwiQ3?usp=share_link" target="_blank" rel="noopener" style="color:var(--teal); text-decoration:none; border-bottom:1px solid rgba(37,78,81,.35);">colorways folder</a>.</p>
+
+    <!-- Primary lockup — full width -->
+    <div class="reveal" style="background:var(--ivory); border:1px solid rgba(197,138,43,.15); padding:52px 40px; display:flex; flex-direction:column; align-items:center; gap:16px; margin-bottom:28px;">
+      <img src="tn_logo_primary.png" alt="Primary Lockup" style="width:100%; max-width:560px; height:auto; object-fit:contain;">
+      <div class="logo-card-label">Primary Lockup</div>
+    </div>
+
+    <!-- Colorway grid -->
+    <div class="sec-label reveal" style="margin-bottom:20px;">Colorways</div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;" class="reveal">
+
+      <div style="background:var(--ivory); border:1px solid rgba(197,138,43,.12); padding:32px 20px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+        <img src="TrueNorth_blackandGold.png" alt="Black + Gold" style="width:100%; height:auto; object-fit:contain;">
+        <div class="logo-card-label">Black + Gold</div>
+      </div>
+
+      <div style="background:var(--black); border:1px solid rgba(197,138,43,.12); padding:32px 20px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+        <img src="TrueNorth_GoldandIvory.png" alt="Gold + Ivory" style="width:100%; height:auto; object-fit:contain;">
+        <div class="logo-card-label" style="color:var(--ivory);">Gold + Ivory</div>
+      </div>
+
+      <div style="background:var(--black); border:1px solid rgba(197,138,43,.12); padding:32px 20px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+        <img src="tn_logo_ivory.png" alt="1 Color Logo" style="width:100%; height:auto; object-fit:contain;">
+        <div class="logo-card-label" style="color:var(--ivory);">1 Color Logo</div>
+      </div>
+
+      <div style="background:var(--ivory); border:1px solid rgba(197,138,43,.12); padding:32px 20px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+        <img src="TrueNorth_tealandrkteal.png" alt="Mint + Dark Teal" style="width:100%; height:auto; object-fit:contain;">
+        <div class="logo-card-label">Mint + Dark Teal</div>
+      </div>
+
+      <div style="background:var(--ivory); border:1px solid rgba(197,138,43,.12); padding:32px 20px; display:flex; flex-direction:column; align-items:center; gap:14px;">
+        <img src="TrueNorth_darktealTeal.png" alt="Dark Teal + Mint" style="width:100%; height:auto; object-fit:contain;">
+        <div class="logo-card-label">Dark Teal + Mint</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== COLORS ===== -->
+<div id="colors" style="background: #fff;">
+  <div class="sec-wrap">
+    <div class="sec-label reveal">Colors</div>
+    <div class="sec-head reveal">Color System</div>
+    <p class="sec-body reveal">Three primary colors carry the full campaign. Mint and Dark Teal are secondary — backgrounds, accents, and decorative applications. Print specs (CMYK/ink type) are in the campaign guidelines PDF.</p>
+
+    <div class="sec-label reveal" style="margin-bottom:20px;">Primary</div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;" class="reveal">
+      <div class="swatch">
+        <div class="swatch-block" style="background:#C58A2B;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gold</div>
+          <div class="swatch-hex">#C58A2B</div>
+          <div class="swatch-role">Flags, highlights, guitar pick, key details.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#F5EFD5; border:1px solid rgba(0,0,0,.07);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Ivory</div>
+          <div class="swatch-hex">#F5EFD5</div>
+          <div class="swatch-role">Light backgrounds. Reversed type on dark fields.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#191818; border:1px solid rgba(0,0,0,.07);"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Near Black</div>
+          <div class="swatch-hex">#191818</div>
+          <div class="swatch-role">Type, dimensional shadows, one-color applications.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-label reveal" style="margin-top:48px; margin-bottom:20px;">Secondary</div>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:16px;" class="reveal">
+      <div class="swatch">
+        <div class="swatch-block" style="background:#99BBB0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Mint</div>
+          <div class="swatch-hex">#99BBB0</div>
+          <div class="swatch-role">Backgrounds, secondary flag, decorative accents.</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-block" style="background:#254E51;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dark Teal</div>
+          <div class="swatch-hex">#254E51</div>
+          <div class="swatch-role">Dark backgrounds, structural elements, shadows.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FONTS ===== -->
+<div id="fonts">
+  <div class="sec-wrap">
+    <div class="sec-label reveal">Typography</div>
+    <div class="sec-head reveal">Type System</div>
+    <p class="sec-body reveal">Breakers Slab Bold + Gin are the primary logo fonts, available via Adobe Fonts (CC subscription). Hatfield Park Stamp is the festival script — used sparingly, all instances outlined. Knockout covers supporting display needs. All print type will be outlined in final production files.</p>
+
+    <div style="display:flex; flex-direction:column; gap:24px;" class="reveal">
+      <div style="background:#fff; border:1px solid rgba(197,138,43,.14); padding:40px 36px;">
+        <img src="tn_fonts_spec.png"
+             alt="True North font spec — Breakers Slab Bold, Gin, Hatfield Park Stamp, restaurant and musician listings"
+             style="width:100%; height:auto;">
+      </div>
+      <div style="background:#fff; border:1px solid rgba(197,138,43,.14); padding:40px 36px;">
+        <img src="tn_fonts_display.png"
+             alt="True North typeface display — Breakers Slab Regular, Gin Regular, Knockout HTF26-JuniorFlyweight"
+             style="width:100%; height:auto;">
+      </div>
+    </div>
+
+    <div class="type-note reveal" style="margin-top:28px;">
+      <div class="type-note-label">Licensing</div>
+      <p>All fonts requiring a license have been outlined in the working files — no additional software is needed to open or print production files. Breakers Slab and Gin are available via Adobe Fonts (fonts.adobe.com, CC subscription) for any new production work.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BACKGROUNDS ===== -->
+<div id="backgrounds" class="band-dark">
+  <div class="sec-wrap">
+    <div class="sec-label reveal">Backgrounds</div>
+    <div class="sec-head reveal">Texture System</div>
+    <p class="sec-body reveal">Two distressed texture files cover the full campaign. Use the blue ground for primary event collateral. Use the ivory ground for menus, programs, and lighter-field materials.</p>
+
+    <div class="bg-grid reveal">
+      <div class="bg-card">
+        <div class="bg-preview is-blue"></div>
+        <div class="bg-filename">bg_blue.jpg</div>
+        <div class="bg-use">Primary. Posters, digital headers, large-format print, stage graphics.</div>
+      </div>
+      <div class="bg-card">
+        <div class="bg-preview is-ivory"></div>
+        <div class="bg-filename">bg_ivory.jpg</div>
+        <div class="bg-use">Secondary. Menus, programs, vendor materials, lighter-ground applications.</div>
+      </div>
+    </div>
+
+    <div class="sec-label reveal" style="margin-top: 56px;">Flourishes</div>
+    <p class="sec-body reveal" style="margin-bottom:0;">Decorative elements for layout use: bookend rules, triangle divider, secondary pennant flag (mint), guitar pick (gold), and vertical linework. All provided as vector artwork in the campaign files package.</p>
+  </div>
+</div>
+
+<!-- ===== POSTER ===== -->
+<div id="poster">
+  <div class="sec-wrap">
+    <div class="sec-label reveal">Announcement Poster</div>
+    <div class="sec-head reveal">2026 Instagram Poster</div>
+    <p class="sec-body reveal">4:5 digital format for Instagram. Sized and optimized for the May 12 announcement. Use this file for all social posting — do not crop, resize, or recompress.</p>
+
+    <div class="reveal" style="display:flex; flex-direction:column; align-items:center; gap:20px;">
+      <div style="max-width:420px; width:100%; cursor:pointer;" onclick="openLightbox(this.querySelector('img').src)">
+        <img src="TrueNorth2026_2026Poster_Final_BigSis.jpg"
+             alt="True North 2026 Instagram Announcement Poster"
+             style="width:100%; height:auto; aspect-ratio:3/4; object-fit:cover;">
+      </div>
+      <div style="display:flex; flex-direction:column; align-items:center; gap:12px;">
+        <div style="font-family:var(--ff-a); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(25,24,24,.72);">3:4 &nbsp;·&nbsp; Instagram &nbsp;·&nbsp; May 12 Announcement</div>
+        <a href="TrueNorth2026_2026Poster_Final_BigSis.jpg" download
+           style="font-family:var(--ff-a); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--black); padding:10px 24px; text-decoration:none; display:inline-block; transition:opacity .2s;"
+           onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">↓ Download Full Size</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BIG SIS PRESENTATION DRAWER ===== -->
+<button class="bs-drawer-btn" id="bsDrawerBtn" onclick="toggleBsDrawer()">
+  <span>Previous Poster Concept Presentations</span>
+  <span class="bs-drawer-chevron" id="bsDrawerChevron">↓</span>
+</button>
+
+<div class="bs-drawer-panel" id="bsDrawerPanel">
+
+  <!-- Hero -->
+  <div class="bs-hero">
+    <div class="bs-hero-eyebrow">Creative Review — May 2026</div>
+    <div class="bs-hero-title">TRUE NORTH</div>
+    <div class="bs-hero-sub">Food + Music Festival &nbsp;·&nbsp; Year Two &nbsp;·&nbsp; Confidential · Big Sis Creative Studio · 2026</div>
+  </div>
+
+  <!-- Pres nav -->
+  <nav class="bs-nav">
+    <a href="#bs-refinements">Refinements</a>
+    <a href="#bs-steps">Next Steps</a>
+    <a href="#bs-brief">The Brief</a>
+    <a href="#bs-last-year">Last Year</a>
+    <a href="#bs-c1">Concept 1</a>
+    <a href="#bs-c2">Concept 2</a>
+    <div class="bs-nav-badge">Archive · Rounds 1 + 2</div>
+  </nav>
+
+  <!-- REFINEMENTS -->
+  <div class="bs-band-1" id="bs-refinements">
+    <div class="bs-section">
+      <div class="bs-sec-bar">Round Two</div>
+      <div class="bs-h2">Refinements</div>
+      <p class="bs-body">Selected direction, client feedback, and iteration review.</p>
+
+      <div style="margin-top:40px; text-align:center;">
+        <img src="TN_concep1-01.jpg" alt="Selected Direction"
+             style="max-width:420px; width:100%; cursor:pointer; margin:0 auto;"
+             onclick="openLightbox(this.src)">
+        <p style="font-family:'Epilogue',sans-serif; font-size:9px; letter-spacing:.15em; text-transform:uppercase; color:rgba(78,0,2,.35); margin-top:10px;">Selected Direction</p>
+      </div>
+
+      <div class="bs-feedback-grid">
+        <div class="bs-feedback-item">
+          <div class="bs-feedback-topic">Client Feedback</div>
+          <div class="bs-feedback-text">"Overall everyone is loving the overall design/feel of things!"</div>
+        </div>
+        <div class="bs-feedback-item">
+          <div class="bs-feedback-topic">Color Direction</div>
+          <div class="bs-feedback-text">Not feeling the red. Torn between last year's colorway and the blue background option. Open to our recommendation.</div>
+        </div>
+        <div class="bs-feedback-item">
+          <div class="bs-feedback-topic">Content</div>
+          <div class="bs-feedback-text">Remove "17 Local" and "7 Heart Thumpn" callouts.</div>
+        </div>
+        <div class="bs-feedback-item">
+          <div class="bs-feedback-topic">Sponsors</div>
+          <div class="bs-feedback-text">Sponsor logos should be black for legibility, not gold.</div>
+        </div>
+        <div class="bs-feedback-item">
+          <div class="bs-feedback-topic">Food List</div>
+          <div class="bs-feedback-text">Move Baked Lab before The Chocolate Shoppe. Fix spelling: PURSLANE.</div>
+        </div>
+        <div class="bs-feedback-item">
+          <div class="bs-feedback-topic">Logistics</div>
+          <div class="bs-feedback-text">Gates at 1PM (not 3PM) — make it more prominent.</div>
+        </div>
+      </div>
+
+      <div class="bs-notes-box">
+        <div class="bs-notes-box-label">Notes on Refinements</div>
+        <p>After working through the iterations, the strongest direction is to stay within True North's established color system — added a subtle bronzy-gold in one iteration for depth. Pushed on a few with a blue background; also dabbled in using dark green as a highlight, but none of those versions outperform the original palette. There's also a practical upside: keeping last year's colors means the website and existing signage don't need to be rebuilt for year two. Tested a stacked horizontal layout with food above and music below — the volume of restaurant names creates too many lines of centered type, which adds visual noise and loses hierarchy at the margins.</p>
+      </div>
+
+      <div class="bs-sec-bar" style="margin-top:52px; margin-bottom:14px;">Iterations</div>
+      <p style="font-family:'Epilogue',sans-serif; font-size:12px; color:rgba(78,0,2,.35);">Click any thumbnail to view full size.</p>
+
+      <div class="bs-iter-grid">
+        <div class="bs-iter-thumb"><img src="TrueNorth2026_2026Poster_Refinements_EABS-01.jpg" alt="01" onclick="openLightbox(this.src)"><div class="bs-iter-num">01</div></div>
+        <div class="bs-iter-thumb"><img src="TrueNorth2026_2026Poster_Refinements_EABS-02.jpg" alt="02" onclick="openLightbox(this.src)"><div class="bs-iter-num">02</div></div>
+        <div class="bs-iter-thumb"><img src="TrueNorth2026_2026Poster_Refinements_EABS-03.jpg" alt="03" onclick="openLightbox(this.src)"><div class="bs-iter-num">03</div></div>
+        <div class="bs-iter-thumb"><img src="TrueNorth2026_2026Poster_Refinements_EABS-04.jpg" alt="04" onclick="openLightbox(this.src)"><div class="bs-iter-num">04</div></div>
+        <div class="bs-iter-thumb"><img src="TrueNorth2026_2026Poster_Refinements_EABS-05.jpg" alt="05" onclick="openLightbox(this.src)"><div class="bs-iter-num">05</div></div>
+        <div class="bs-iter-thumb"><img src="TrueNorth2026_2026Poster_Refinements_EABS-06.jpg" alt="06" onclick="openLightbox(this.src)"><div class="bs-iter-num">06</div></div>
+        <div class="bs-iter-thumb"><img src="TrueNorth2026_2026Poster_Refinements_EABS-07.jpg" alt="07" onclick="openLightbox(this.src)"><div class="bs-iter-num">07</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="bs-divider"></div>
+
+  <!-- NEXT STEPS -->
+  <div class="bs-band-0" id="bs-steps">
+    <div class="bs-section">
+      <div class="bs-sec-bar">What Happens Next</div>
+      <div class="bs-h2">Next Steps</div>
+      <div class="bs-steps">
+        <div class="bs-step">
+          <div class="bs-step-num">1</div>
+          <div>
+            <div class="bs-step-title">Feedback + Review</div>
+            <div class="bs-step-desc">True North reviews refinements and shares feedback.</div>
+          </div>
+        </div>
+        <div class="bs-step">
+          <div class="bs-step-num">2</div>
+          <div>
+            <div class="bs-step-title">Finalization</div>
+            <div class="bs-step-desc">Final revisions, detailing, and texturing added to the selected iteration.</div>
+          </div>
+        </div>
+        <div class="bs-step">
+          <div class="bs-step-num">3</div>
+          <div>
+            <div class="bs-step-title">Final Approval</div>
+            <div class="bs-step-desc">Finalized poster sent for last looks and approvals ahead of the May 12 digital announcement deadline. Final files delivered.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bs-divider"></div>
+
+  <!-- THE BRIEF -->
+  <div class="bs-band-1" id="bs-brief">
+    <div class="bs-section">
+      <div class="bs-sec-bar">The Brief</div>
+      <div class="bs-h2">Year two. Bolder. More intentional.</div>
+      <p class="bs-body">True North is heading into 2026 with a bigger lineup, a stronger food story, and a cleaner design vision. Big Sis came in to elevate the poster and set the visual tone for the full campaign.</p>
+      <div class="bs-brief-grid">
+        <div class="bs-brief-card">
+          <div class="bs-brief-card-label">Creative Goal</div>
+          <div class="bs-brief-card-head">Art Direction Refresh</div>
+          <div class="bs-brief-card-body">Updated logo treatment, refined color palette, improved texture, and an overall aesthetic that reflects where the festival is headed — not just where it's been.</div>
+        </div>
+        <div class="bs-brief-card">
+          <div class="bs-brief-card-label">Content Challenge</div>
+          <div class="bs-brief-card-head">Balance Without Flattening</div>
+          <div class="bs-brief-card-body">Year two leans harder into food. The poster needs to honor that shift without subordinating music. Langhorne Slim headlines. Every element earns its place.</div>
+        </div>
+        <div class="bs-brief-card">
+          <div class="bs-brief-card-label">Deliverables</div>
+          <div class="bs-brief-card-head">What's Being Reviewed</div>
+          <div class="bs-brief-card-body">Hero poster — two concepts. 4:5 digital (Instagram) by May 12. 11×17 print-ready by May 26. Colors + fonts reference for Mallards designer.</div>
+        </div>
+        <div class="bs-brief-card">
+          <div class="bs-brief-card-label">Status</div>
+          <div class="bs-brief-card-head">Where We Are</div>
+          <div class="bs-brief-card-body">Two concepts presented. Color direction intentionally open. Neither is final — this review exists to align on aesthetic direction before refinement. One revision round included in scope.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bs-divider"></div>
+
+  <!-- LAST YEAR -->
+  <div class="bs-band-0" id="bs-last-year">
+    <div class="bs-section">
+      <div class="bs-sec-bar">Last Year</div>
+      <div class="bs-h2">Year One: The Baseline</div>
+      <p class="bs-body">True North 2025 · Pokey LaFargo headlined. Building on the brand — year two evolves the visual system.</p>
+      <div class="bs-last-year-wrap">
+        <div>
+          <img src="TN_2025_Poster.png" alt="True North 2025 Poster"
+               style="width:100%; cursor:pointer;" onclick="openLightbox(this.src)">
+        </div>
+        <div>
+          <div class="bs-sec-bar" style="margin-bottom:14px;">Building on the brand.</div>
+          <p style="font-family:'Epilogue',sans-serif; font-size:14px; line-height:1.78; color:rgba(78,0,2,.55); margin-bottom:28px;">Year two evolves the True North visual system — pushing the color palette to differentiate from 2025, giving more weight to the food side of the festival while keeping the core mark system intact.</p>
+          <div class="bs-keeping-list">
+            <div class="bs-keeping-item"><div class="bs-keeping-badge bs-badge-keep">Keeping</div><span>Mark System</span></div>
+            <div class="bs-keeping-item"><div class="bs-keeping-badge bs-badge-evolve">Evolving</div><span>Color Palette</span></div>
+            <div class="bs-keeping-item"><div class="bs-keeping-badge bs-badge-amp">Amplifying</div><span>Food Story</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bs-divider"></div>
+
+  <!-- CONCEPT 1 -->
+  <div class="bs-band-2" id="bs-c1">
+    <div class="bs-section">
+      <div class="bs-concept-num">01</div>
+      <div class="bs-h2">Evolved palette. Elevated hierarchy.</div>
+      <p class="bs-body">Builds on the True North mark system while pushing the color story. Food and music carry equal weight. The flag pole gets an update — the fork guitar appears as a way to visually bridge both sides of the festival.</p>
+      <div class="bs-featured">
+        <img src="TN_concep1-01.jpg" alt="Concept 1" onclick="openLightbox(this.src)">
+      </div>
+      <div class="bs-sec-bar" style="margin-top:48px; margin-bottom:10px;">Alternate Colorways — Concept 1</div>
+      <div class="bs-colorway-strip">
+        <div class="bs-cw-thumb"><img src="TN_concep1-03.jpg" alt="Colorway B" onclick="openLightbox(this.src)"></div>
+        <div class="bs-cw-thumb"><img src="TN_concep1-02.jpg" alt="Colorway C" onclick="openLightbox(this.src)"></div>
+        <div class="bs-cw-thumb"><img src="TN_concep1-04.jpg" alt="Colorway D" onclick="openLightbox(this.src)"></div>
+        <div class="bs-cw-thumb"><img src="TN_concep1-05.jpg" alt="Colorway E" onclick="openLightbox(this.src)"></div>
+      </div>
+    </div>
+  </div>
+  <div class="bs-divider"></div>
+
+  <!-- CONCEPT 2 -->
+  <div class="bs-band-1" id="bs-c2">
+    <div class="bs-section">
+      <div class="bs-concept-num">02</div>
+      <div class="bs-h2">True North at the center.</div>
+      <p class="bs-body">Explores whether the mark stands on its own — no flag pole update, no fork guitar. The logo anchors both sides of the festival, bridging food and music through placement and hierarchy rather than illustration. Pulls gold from year one; richer, deeper tones signal year two's evolution.</p>
+      <div class="bs-featured">
+        <img src="TNConcept2.jpg" alt="Concept 2" onclick="openLightbox(this.src)">
+      </div>
+    </div>
+  </div>
+
+  <div class="bs-pres-footer">
+    <span class="pfl">True North Food + Music Festival &nbsp;·&nbsp; Creative Review &nbsp;·&nbsp; 04–05.2026</span>
+    <span class="pfr">Big Sis Creative Studio</span>
+  </div>
+
+</div><!-- /bs-drawer-panel -->
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="footer-left">True North Food + Music Festival &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Confidential</div>
+  <div class="footer-right" style="display:flex; align-items:center; gap:12px;">
+    <span>Provided by <a href="https://www.bigsiscreativestudio.com" target="_blank" rel="noopener" style="color:var(--ivory); text-decoration:none; border-bottom:1px solid rgba(245,239,213,.4);">Big Sis Creative Studio</a></span>
+    <img src="bigsis_logo_bkrnd-pinkonred.png" alt="Big Sis Creative Studio" style="width:36px; height:36px; border-radius:6px; object-fit:contain;">
+  </div>
+</footer>
+
+<!-- ===== LIGHTBOX ===== -->
+<div class="lb-overlay" id="lightbox" onclick="closeLightbox()">
+  <button class="lb-close" onclick="closeLightbox()">×</button>
+  <img src="" alt="" id="lb-img">
+</div>
+
+<script>
+  function toggleBsDrawer() {
+    var panel   = document.getElementById('bsDrawerPanel');
+    var chevron = document.getElementById('bsDrawerChevron');
+    var isOpen  = panel.classList.contains('open');
+    if (isOpen) {
+      panel.style.overflow = 'hidden';
+      panel.classList.remove('open');
+    } else {
+      panel.classList.add('open');
+      setTimeout(function(){ panel.style.overflow = ''; }, 650);
+    }
+    chevron.classList.toggle('open');
+  }
+
+  function openLightbox(src) {
+    document.getElementById('lb-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(function(el) { obs.observe(el); });
+</script>
+</body>
+</html>
