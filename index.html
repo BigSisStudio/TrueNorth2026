@@ -1010,26 +1010,41 @@
   <div class="sec-wrap">
     <div class="sec-label reveal">Announcement Assets</div>
     <div class="sec-head reveal">2026 Posters &amp; Handbill</div>
-    <p class="sec-body reveal">Three formats, one campaign. The Instagram poster is digital-only — download and post as-is. The 11×17 and handbill are print pieces — preview JPGs are provided for reference only. Use the print-ready PDF links to send to your printer.</p>
+    <p class="sec-body reveal">Four formats, one campaign. Both Instagram posters are digital-only — download whichever ratio your grid needs and post as-is. The 11×17 and handbill are print pieces — preview JPGs are provided for reference only. Use the print-ready PDF links to send to your printer.</p>
 
-    <div class="reveal" style="display:grid; grid-template-columns:repeat(3,1fr); gap:32px; align-items:start;">
+    <div class="reveal" style="display:grid; grid-template-columns:repeat(4,1fr); gap:32px; align-items:start;">
 
-      <!-- Card 1: Instagram -->
+      <!-- Card 1: Instagram 3:4 -->
       <div style="display:flex; flex-direction:column; gap:16px;">
         <div style="cursor:pointer; overflow:hidden;" onclick="openLightbox(this.querySelector('img').src)">
-          <img src="TrueNorth2026_2026Poster_Final_BigSis.png"
-               alt="True North 2026 Instagram Poster"
+          <img src="TN_Insta_3-4_2x.png"
+               alt="True North 2026 Instagram Poster — 3:4"
                style="width:100%; height:auto; display:block;">
         </div>
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <div style="font-family:var(--ff-a); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(25,24,24,.72); line-height:1.6;">4:5 &nbsp;·&nbsp; Instagram &nbsp;·&nbsp; Digital Only</div>
-          <a href="TrueNorth2026_2026Poster_Final_BigSis.png" download
+          <div style="font-family:var(--ff-a); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(25,24,24,.72); line-height:1.6;">3:4 &nbsp;·&nbsp; Instagram &nbsp;·&nbsp; Digital Only</div>
+          <a href="TN_Insta_3-4_2x.png" download
              style="font-family:var(--ff-a); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--black); padding:10px 20px; text-decoration:none; display:inline-block; transition:opacity .2s; text-align:center;"
              onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">↓ Download Full Size</a>
         </div>
       </div>
 
-      <!-- Card 2: 11x17 Print Poster -->
+      <!-- Card 2: Instagram 4:5 -->
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <div style="cursor:pointer; overflow:hidden;" onclick="openLightbox(this.querySelector('img').src)">
+          <img src="TN_Insta_4-5_2x.png"
+               alt="True North 2026 Instagram Poster — 4:5"
+               style="width:100%; height:auto; display:block;">
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="font-family:var(--ff-a); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(25,24,24,.72); line-height:1.6;">4:5 &nbsp;·&nbsp; Instagram &nbsp;·&nbsp; Digital Only</div>
+          <a href="TN_Insta_4-5_2x.png" download
+             style="font-family:var(--ff-a); font-size:10px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; background:var(--gold); color:var(--black); padding:10px 20px; text-decoration:none; display:inline-block; transition:opacity .2s; text-align:center;"
+             onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">↓ Download Full Size</a>
+        </div>
+      </div>
+
+      <!-- Card 3: 11x17 Print Poster -->
       <div style="display:flex; flex-direction:column; gap:16px;">
         <div style="overflow:hidden;">
           <img src="Poster_NOTFORPRINT.jpg"
@@ -1065,9 +1080,14 @@
 
     </div>
 
-    <!-- Mobile responsive override -->
+    <!-- Responsive overrides -->
     <style>
-      @media (max-width: 700px) {
+      @media (max-width: 900px) {
+        #poster .sec-wrap > div[style*="grid-template-columns"] {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+      }
+      @media (max-width: 560px) {
         #poster .sec-wrap > div[style*="grid-template-columns"] {
           grid-template-columns: 1fr !important;
         }
